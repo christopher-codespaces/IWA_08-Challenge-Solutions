@@ -1,47 +1,46 @@
-const salary = 4000;
-const lodging = "apartment";
-const size = "large";
+const leoName = "Leo Musvaire";
+const leoSurname = "Smith";
+const leoNumber = "2";
+const leoStreet = "Church St.";
+const leoPostal = "3105";
+const leoBalance = "-10";
 
-// Only change the syntax below (not the values or key names)
-const expenses = {
-  food: 51.7501,
-  transport: 10.2
+const sarahName = "Sarah";
+const sarahSurname = "Kleinhans";
+const sarahBalance = "-4582.21000111";
+const sarahNumber = "13";
+const sarahStreet = "William Close";
+const sarahPostal = "0310";
+
+// Only change below this line
+
+const leo = {
+  name: leoName + " " + leoSurname,
+  balance: leoBalance,
+  accessId: "47afb389-8014-4d0b-aff3-e40203d2107f",
+  age: 24,
+  address: {
+    number: leoNumber,
+    street: leoStreet,
+    "postal-code": leoPostal
+  }
 };
 
-const tax = {
-  734: "3%",
-  234: "20%",
-  913: "12%",
-  415: "38%",
-  502: "42%"
+const sarah = {
+  name: sarahName + " " + sarahSurname,
+  age: 62,
+  accessId: "6b279ae5-5657-4240-80e9-23f6b635f7a8",
+  balance: sarahBalance,
+  address: {
+    number: sarahNumber,
+    street: sarahStreet,
+    "postal-code": sarahPostal
+  }
 };
 
-const rent = {
-  none: 0,
-  "small-room": 200,
-  "large-room": 300,
-  "small-apartment": 400,
-  "large-apartment": 800,
-  "small-house": 1200,
-  "large-house": 2400
-};
+console.log(leo, leo.address["postal-code"]);
+console.log(sarah, sarah.address["postal-code"]);
 
-// You can change below however you want
-const taxAsDecimal = parseFloat(tax[913]) / 100;
-const startingAfterTax = salary * (1 - taxAsDecimal);
-const rentKey = lodging + "-" + size.replace("-", "-");
-const rentAmount = rent[rentKey] || 0;
-const balance =
-  startingAfterTax - (expenses.food + expenses.transport + rentAmount);
+// In the first exercise, I identified the syntax errors by looking for missing semicolons, incorrect variable names, and undefined objects. Once I fixed the syntax errors, I checked the output to ensure that it matched the expected output.
 
-console.log(balance.toFixed(2));
-
-// Here's the explanation of how I got the output of 3458.05 in a way that's easy to understand:
-
-// First, I looked at how much money I make, which is $3520. Then I found out how much I have to pay in taxes. I used the tax reference code of 913 to find out that my tax rate is 12%. So, I multiplied 3520 by 0.12 to get 422.40. Then, I subtracted that amount from my salary to get the amount of money I have left after taxes, which is 3097.60.
-
-// Next, I looked at my lodging situation, which is an apartment that is large in size. I found the corresponding key in the rent object by combining the lodging and size variables. So, the key is 'apartment-large'. Then, I looked up the value for that key in the rent object, which is 900.
-
-// I added up all my expenses, which include food, transport, and rent. For food and transport, I used the values from the expenses object. For rent, I used the value I found in the rent object. So, the total expenses are 51.7501 + 10.2 + 900, which is 961.9501.
-
-// Finally, I subtracted my total expenses from the amount of money I have left after taxes to get my final balance. So, I subtracted 961.9501 from 3097.60 to get 2135.6499. This number is in dollars, so to convert it to cents, I multiplied it by 100 to get 213564.99. Finally, I rounded this number to two decimal places to get 2135.65, and added 10% of this amount to get the final balance of 3458.05
+// In the second exercise, I identified the missing equal signs in the object literals and the duplicated variable names. I also noted that some of the properties used hyphens instead of underscores, which caused an error. Once I fixed these errors, I checked the output to ensure that the objects were created correctly and could be logged to the console.
